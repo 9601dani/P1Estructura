@@ -7,6 +7,7 @@ package com.dani96.practica1estructura.frames;
 import com.dani96.practica1estructura.control.ArchivoEntrada;
 import com.dani96.practica1estructura.control.ControlCaballo;
 import com.dani96.practica1estructura.control.ListaCircularDoble;
+import static com.dani96.practica1estructura.main.Main.lista;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -130,7 +131,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SubirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubirArchivoActionPerformed
         // TODO add your handling code here:
-        ListaCircularDoble lista= new ListaCircularDoble();
+        
         System.out.println("Subire un archivo de entrada");
         ArchivoEntrada archE = new ArchivoEntrada();
         String[] cadena = archE.SubirArchivo(this);

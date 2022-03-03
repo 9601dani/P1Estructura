@@ -21,7 +21,7 @@ public class Apuesta {
         this.montoApuesta = montoApuesta;
         this.caballos = caballos;
         this.puntos=0;
-        this.valida=true;
+        this.valida=false;
     }
 
     public Apuesta(Apostador persona, double montoApuesta, int puntos, boolean valida) {

@@ -4,6 +4,7 @@
  */
 package com.dani96.practica1estructura.main;
 
+import com.dani96.practica1estructura.control.ListaCircularDoble;
 import com.dani96.practica1estructura.frames.MainFrame;
 
 /**
@@ -11,8 +12,11 @@ import com.dani96.practica1estructura.frames.MainFrame;
  * @author daniel
  */
 public class Main {
+    public static ListaCircularDoble lista= new ListaCircularDoble();
+    
     public static void main(String[] args) {
           MainFrame ventana= new MainFrame();
           ventana.setVisible(true);
+          
     }
 }

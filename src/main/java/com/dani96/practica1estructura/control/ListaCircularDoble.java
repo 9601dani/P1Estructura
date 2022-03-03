@@ -45,7 +45,10 @@ public class ListaCircularDoble {
            System.out.println("NODO "+ inicioNodo.getValor());
            Nodo aux= inicioNodo.getSiguiente();
            Nodo auxi= inicioNodo.getAnterior();
-           while(leer){
+           if(inicioNodo.getAnterior()==ultimoNodo.getSiguiente()){
+               
+           }else{
+               while(leer){
                if(aux!=auxi){
                    System.out.println("NODO "+ aux.getValor());
                    aux = aux.getSiguiente();
@@ -57,8 +60,10 @@ public class ListaCircularDoble {
                }
                
            }
+           }
+           
        }
-        System.out.println("-------- "+contador);
+        System.out.println("-------- "+contador+1);
     }
 
 }
