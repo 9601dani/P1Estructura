@@ -32,8 +32,6 @@ public class ArchivoEntrada {
                     cadena = cadena + (char)valor;
                     valor = fr.read();
                 }
-                System.out.println("ESTO ENCONTRE: \n"+cadena);
-                System.out.println("----------------");
                 return splitDatos(cadena.replace("\n", ","));
                 
                

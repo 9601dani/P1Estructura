@@ -21,7 +21,7 @@ public class Apuesta {
         this.montoApuesta = montoApuesta;
         this.caballos = caballos;
         this.puntos=0;
-        this.valida=false;
+        this.valida=true;
     }
 
     public Apuesta(Apostador persona, double montoApuesta, int puntos, boolean valida) {
@@ -77,7 +77,8 @@ public class Apuesta {
     @Override
     public String toString() {
         return  "Nombre Apostador: " + persona .getNombre()
-                + ", montoApuesta: Q." + montoApuesta + ", Ordenamiento De Caballos Escogida: \n" + getListCaballos(this);
+                + ", montoApuesta: Q." + montoApuesta + ", Ordenamiento De Caballos Escogida: \n" + getListCaballos(this)
+                + "\n Apuesta: "+ isValida();
     }
     
     public String getListCaballos(Apuesta name){

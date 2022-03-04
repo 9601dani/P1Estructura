@@ -6,10 +6,9 @@ package com.dani96.practica1estructura.frames;
 
 import com.dani96.practica1estructura.control.ArchivoEntrada;
 import com.dani96.practica1estructura.control.ControlCaballo;
-import com.dani96.practica1estructura.control.ListaCircularDoble;
+import static com.dani96.practica1estructura.main.Main.apuestas;
 import static com.dani96.practica1estructura.main.Main.lista;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -43,6 +42,8 @@ public class MainFrame extends javax.swing.JFrame {
         IngresoResultado = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         SubirArchivo = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        CerrarApuesta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +97,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setText("Cerrar Apuestas");
+
+        CerrarApuesta.setText("Cerrar Apuestas");
+        CerrarApuesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarApuestaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(CerrarApuesta);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,9 +132,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void IngresoApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoApuestaActionPerformed
         // TODO add your handling code here:
-        System.out.println("VOY A INGRESAR UNA APUESTA");
-       IngresoDatos ingreso = new IngresoDatos();
-       ingreso.setVisible(true);
+        if (apuestas == true) {
+            IngresoDatos ingreso = new IngresoDatos();
+            ingreso.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Apuestas Cerradas");
+        }
+
     }//GEN-LAST:event_IngresoApuestaActionPerformed
 
     private void IngresoResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoResultadoActionPerformed
@@ -131,26 +148,42 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SubirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubirArchivoActionPerformed
         // TODO add your handling code here:
+        if (apuestas == true) {
+            ArchivoEntrada archE = new ArchivoEntrada();
+            String[] cadena = archE.SubirArchivo(this);
+            ControlCaballo cc = new ControlCaballo();
+            lista = cc.validacionCaballos(cadena, lista);
+            System.out.println("----------->");
+            lista.imprimirInicioFin();
+        }else{
+            JOptionPane.showMessageDialog(null, "ACTUALMENTE ESTAN CERRADAS LAS APUESTAS");
+        }
         
-        System.out.println("Subire un archivo de entrada");
-        ArchivoEntrada archE = new ArchivoEntrada();
-        String[] cadena = archE.SubirArchivo(this);
-        ControlCaballo cc= new ControlCaballo();
-        lista=cc.validacionCaballos(cadena, lista);
-        System.out.println("----------->");
-        lista.imprimirInicioFin();
     }//GEN-LAST:event_SubirArchivoActionPerformed
+
+    private void CerrarApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarApuestaActionPerformed
+        // TODO add your handling code here:
+        apuestas=false;
+        JOptionPane.showMessageDialog(null, "Hemos analizado las apuestas, recuerda ingresar los resultado\n"+
+                                                         "no olvides ingresar los resultados");
+        lista.analizarApuestas();
+        System.out.println("two\n");
+        lista.imprimirInicioFin();
+        
+    }//GEN-LAST:event_CerrarApuestaActionPerformed
     
     
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CerrarApuesta;
     private javax.swing.JMenuItem IngresoApuesta;
     private javax.swing.JMenuItem IngresoResultado;
     public static javax.swing.JPanel PanelFinal;
     private javax.swing.JMenuItem SubirArchivo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

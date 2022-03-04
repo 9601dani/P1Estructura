@@ -13,6 +13,7 @@ import com.dani96.practica1estructura.frames.MainFrame;
  */
 public class Main {
     public static ListaCircularDoble lista= new ListaCircularDoble();
+    public static boolean apuestas=true;
     
     public static void main(String[] args) {
           MainFrame ventana= new MainFrame();
