@@ -20,6 +20,7 @@ public class ListaCircularDoble {
     private int[] caballos;
     private int contador;
     private int contadorA;
+    private boolean encontrado=false;
 
     public boolean empty() {
         return inicioNodo == null;
@@ -80,23 +81,29 @@ public class ListaCircularDoble {
             Nodo auxi = inicioNodo.getAnterior();                                  //O(1)
             if (inicioNodo.getAnterior() == ultimoNodo.getSiguiente()) {           //O(1)
                 System.out.println("FINALICEEEEE");
+                this.apuesta = inicioNodo.getValor();                              //O(1)
+                        this.contador=0;                                           //O(1)                 
+                        this.caballos = this.apuesta.getCaballos();                //O(1)
+                        validacionApuesta();                                       //O(1)                                               //O(1)
             } else {                                                               //O(1)
                 while (leer) {                                                     //O(n)------->
                     if (aux != auxi) {                                             //O(1)
-                        this.apuesta = aux.getValor();                      //O(1)
+                        this.apuesta = aux.getValor();                             //O(1)
                         this.contador=0;                                           //O(1)                 
-                        this.caballos = aux.getValor().getCaballos();       //O(1)
+                        this.caballos = aux.getValor().getCaballos();              //O(1)
+                        this.encontrado=false;                                     //O(1)
                         validacionApuesta();                                       //O(1)
                         aux = aux.getSiguiente();                                  //O(1)
-                        this.apuesta=aux.getValor();
+                        this.apuesta=aux.getValor();                               //O(1)
                         contador++;                                                //O(1)
                     } else {                                                       //O(1)
                         this.apuesta = aux.getValor();                             //O(1)
                         this.contador=0;                                           //O(1)
-                        this.caballos = aux.getValor().getCaballos();             //O(1)
+                        this.caballos = aux.getValor().getCaballos();              //O(1)
+                        this.encontrado=false;                                     //O(1)
                         validacionApuesta();                                       //O(1)
                         aux = aux.getSiguiente();                                  //O(1)
-                        this.apuesta=aux.getValor();
+                        this.apuesta=aux.getValor();                               //O(1)
                         leer = false;                                              //O(1)
                         contador++;                                                //O(1)
                     }                                                             //---------------   
@@ -107,20 +114,22 @@ public class ListaCircularDoble {
         }
 
     }
-    public void validacionApuesta(){
-        for (int i = (contador+1); i <(10-contador) ; i++) {                    //O(10)------->
-            if(this.caballos[contador] == this.caballos[i]){                    //O(1)
-                if(contador==8){
-                    this.contador=0;
-                    break;
-                }
+    public void validacionApuesta() {
+        System.out.println("VALOR CONTADOR: "+this.contador);
+        boolean encontado=true;
+        for (int i = (contador + 1); i < 10; i++) {                             //O(10)------->
+            if (this.caballos[contador] == this.caballos[i]) {                  //O(1)
                 this.apuesta.setValida(false);                            //O(1)
+                encontado = true;                                               //O(1)
                 break;                                                          //O(1)
-            }else{                                                              //O(1)
-                this.contador++;                                                //O(1)
-                validacionApuesta();                                            //O(1)
-            }                                                               //--------------
+            }else{                                                     //--------------
+                 encontado=false;
+            }
         }                                                       //RESULTADO FINAL O(1)
+        if (encontado == false) {
+            this.contador++;
+             validacionApuesta();
+        }
     }
 
 }

@@ -167,8 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Hemos analizado las apuestas, recuerda ingresar los resultado\n"+
                                                          "no olvides ingresar los resultados");
         lista.analizarApuestas();
-        System.out.println("two\n");
-        lista.imprimirInicioFin();
+       lista.imprimirInicioFin();
         
     }//GEN-LAST:event_CerrarApuestaActionPerformed
     

@@ -49,9 +49,7 @@ public class ControlCaballo {
     public int[] asignacionCaballos(String[] array){
         int[] caballo= new int[10];
         int contador=0;
-        System.out.println("ultimo: "+ array[11]);
         for (int i = 2; i < array.length; i++) {
-            System.out.println("jeje "+array[i]);
             caballo[contador]= Integer.parseInt(array[i]);
             contador++;
         }
