@@ -262,8 +262,6 @@ public class IngresoDatos extends javax.swing.JFrame {
             caballos[8] = combo9.getSelectedIndex() + 1;
             caballos[9] = combo10.getSelectedIndex() + 1;
             lista.añadir(new Apuesta(new Apostador(nameText.getText()), Double.parseDouble(montoText.getText()), caballos));
-            System.out.println("----------->");
-            lista.imprimirInicioFin();
             this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed

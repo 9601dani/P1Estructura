@@ -6,6 +6,7 @@ package com.dani96.practica1estructura.frames;
 
 import com.dani96.practica1estructura.control.ArchivoEntrada;
 import com.dani96.practica1estructura.control.ControlCaballo;
+import com.dani96.practica1estructura.main.Main;
 import static com.dani96.practica1estructura.main.Main.apuestas;
 import static com.dani96.practica1estructura.main.Main.lista;
 import javax.swing.JOptionPane;
@@ -143,7 +144,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void IngresoResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoResultadoActionPerformed
         // TODO add your handling code here:
-        System.out.println("VOY A INGRESAR RESULTADOS");
+        IngresoResultado IR= new IngresoResultado();
+        IR.setVisible(true);
     }//GEN-LAST:event_IngresoResultadoActionPerformed
 
     private void SubirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubirArchivoActionPerformed
@@ -163,12 +165,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void CerrarApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarApuestaActionPerformed
         // TODO add your handling code here:
-        apuestas=false;
+        apuestas=false;                                                //O(n)     
         JOptionPane.showMessageDialog(null, "Hemos analizado las apuestas, recuerda ingresar los resultado\n"+
-                                                         "no olvides ingresar los resultados");
-        lista.analizarApuestas();
-       lista.imprimirInicioFin();
-        
+                                                         "no olvides ingresar los resultados");          
+        lista=lista.analizarApuestas();                                       //O(n)
+        lista.imprimirInicioFin();                                      //O(n)
+        JOptionPane.showMessageDialog(null, "jeje");
+        Main.listaError.imprimirInicioFin();
+                                                                //----------------
+                                                                        //n
     }//GEN-LAST:event_CerrarApuestaActionPerformed
     
     

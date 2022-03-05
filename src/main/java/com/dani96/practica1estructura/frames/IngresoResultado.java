@@ -5,21 +5,20 @@
 package com.dani96.practica1estructura.frames;
 
 import com.dani96.practica1estructura.control.ListaCircularDoble;
-import static com.dani96.practica1estructura.main.Main.lista;
-import com.dani96.practica1estructura.objects.Apostador;
-import com.dani96.practica1estructura.objects.Apuesta;
+import com.dani96.practica1estructura.main.Main;
+import static com.dani96.practica1estructura.main.Main.apuestas;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author daniel
  */
-public class IngresoDatos extends javax.swing.JFrame {
+public class IngresoResultado extends javax.swing.JFrame {
 
     /**
      * Creates new form IngresoDatos
      */
-    public IngresoDatos() {
+    public IngresoResultado() {
         initComponents();
         this.setResizable(true);
         this.setLocationRelativeTo(null);
@@ -35,8 +34,6 @@ public class IngresoDatos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nameText = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         combo2 = new javax.swing.JComboBox<>();
         combo3 = new javax.swing.JComboBox<>();
@@ -47,8 +44,6 @@ public class IngresoDatos extends javax.swing.JFrame {
         combo6 = new javax.swing.JComboBox<>();
         combo7 = new javax.swing.JComboBox<>();
         combo9 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        montoText = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -63,9 +58,7 @@ public class IngresoDatos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("INGRESO DE APUESTAS:");
-
-        jLabel2.setText("Nombre Apostador");
+        jLabel1.setText("INGRESO DE RESULTADOS:");
 
         jButton1.setText("Ingresar Apuesta");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,10 +105,6 @@ public class IngresoDatos extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Monto");
-
-        montoText.setText("Monto");
-
         jLabel4.setText("1er Lugar");
 
         jLabel5.setText("2do Lugar");
@@ -148,26 +137,22 @@ public class IngresoDatos extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(121, 121, 121)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(combo5, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(combo3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(combo4, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(combo2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(combo1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(montoText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                                    .addComponent(combo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,26 +171,18 @@ public class IngresoDatos extends javax.swing.JFrame {
                                             .addComponent(combo9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(combo8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(combo7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(combo6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(301, 301, 301))
+                                            .addComponent(combo6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(231, 231, 231)
+                                .addComponent(jButton1)
+                                .addGap(287, 287, 287)))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(montoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -240,7 +217,7 @@ public class IngresoDatos extends javax.swing.JFrame {
                     .addComponent(combo10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,8 +225,6 @@ public class IngresoDatos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("jejeje");
-        System.out.println(nameText.getText());
             int[] caballos = new int[10];
             caballos[0] = combo1.getSelectedIndex() + 1;
             caballos[1] = combo2.getSelectedIndex() + 1;
@@ -261,13 +236,25 @@ public class IngresoDatos extends javax.swing.JFrame {
             caballos[7] = combo8.getSelectedIndex() + 1;
             caballos[8] = combo9.getSelectedIndex() + 1;
             caballos[9] = combo10.getSelectedIndex() + 1;
-            lista.añadir(new Apuesta(new Apostador(nameText.getText()), Double.parseDouble(montoText.getText()), caballos));
-            System.out.println("----------->");
-            lista.imprimirInicioFin();
-            this.dispose();
+            if(Verificacion(caballos)==true){
+                 apuestas= true;
+                 this.dispose();
+                  JOptionPane.showMessageDialog(null, "INGRESO CORRECTO");
+            }else{
+                JOptionPane.showMessageDialog(null, "Hemos encontrado\n"
+                        +"errores en el ingreso\n"
+                        +"de resultados");
+            }
+            
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private boolean Verificacion(int[] array){
+       ListaCircularDoble p = new ListaCircularDoble();
+       boolean ca= p.validacionIngresoResultados(array);
+       return ca;
+        
+    }
     private void combo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo4ActionPerformed
@@ -303,15 +290,11 @@ public class IngresoDatos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField montoText;
-    private javax.swing.JTextField nameText;
     // End of variables declaration//GEN-END:variables
 }
