@@ -29,6 +29,7 @@ public class Apuesta {
         this.montoApuesta = montoApuesta;
         this.puntos = puntos;
         this.valida = valida;
+        this.puntos=0;
     }
     
 

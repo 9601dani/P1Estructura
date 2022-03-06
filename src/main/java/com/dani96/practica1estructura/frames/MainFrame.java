@@ -6,6 +6,7 @@ package com.dani96.practica1estructura.frames;
 
 import com.dani96.practica1estructura.control.ArchivoEntrada;
 import com.dani96.practica1estructura.control.ControlCaballo;
+import com.dani96.practica1estructura.control.ListaCircularDoble;
 import com.dani96.practica1estructura.main.Main;
 import static com.dani96.practica1estructura.main.Main.apuestas;
 import static com.dani96.practica1estructura.main.Main.lista;
@@ -153,8 +154,11 @@ public class MainFrame extends javax.swing.JFrame {
         if (apuestas == true) {
             ArchivoEntrada archE = new ArchivoEntrada();
             String[] cadena = archE.SubirArchivo(this);
+            ListaCircularDoble liso= new ListaCircularDoble();
+            ListaCircularDoble lisoE= new ListaCircularDoble();
             ControlCaballo cc = new ControlCaballo();
-            lista = cc.validacionCaballos(cadena, lista);
+            Main.listaError=lisoE;
+            lista = cc.validacionCaballos(cadena, liso);
             System.out.println("----------->");
             lista.imprimirInicioFin();
         }else{
