@@ -16,40 +16,36 @@ import javax.swing.JOptionPane;
  * @author daniel
  */
 public class ArchivoEntrada {
-    public String[] SubirArchivo(MainFrame in) {
+    public String[] SubirArchivo(MainFrame in) {    
        try{
-           JFileChooser archivosubir = new JFileChooser();
-        int seleccion = archivosubir.showOpenDialog(in);
-
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-
-            File fichero = archivosubir.getSelectedFile();
-            String path=fichero.getAbsolutePath();
-            try ( FileReader fr = new FileReader(fichero)) {
-                String cadena = "";
-                int valor = fr.read();
-                while (valor != -1) {
-                    cadena = cadena + (char)valor;
-                    valor = fr.read();
+           JFileChooser archivosubir = new JFileChooser();                                              //O(1)   
+        int seleccion = archivosubir.showOpenDialog(in);                                          //O(1)                                         
+        if (seleccion == JFileChooser.APPROVE_OPTION) {                                                 //O(1)   
+            File fichero = archivosubir.getSelectedFile();                                              //O(1)
+            String path=fichero.getAbsolutePath();                                                      //O(1)        
+            try ( FileReader fr = new FileReader(fichero)) {                                        //O(1)
+                String cadena = "";                                                                     //O(1)           
+                int valor = fr.read();                                                                 //O(1)
+                while (valor != -1) {                                                                   //O(n)------>
+                    cadena = cadena + (char)valor;                                                     //O(1)         
+                    valor = fr.read();                                                                  //O(1)
                 }
-                return splitDatos(cadena.replace("\n", ","));
-                
-               
-            } catch (IOException e1) {
-                JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR EL ARCHIVO");
+                return splitDatos(cadena.replace("\n", ","));                       //O(1)        
+            } catch (IOException e1) {                                                                          
+                JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR EL ARCHIVO");  //O(1)
             }
-            return null;
+            return null;                                                                                //O(1)
         }
        }catch(Exception e){
-           JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR EL ARCHIVO");
+           JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR EL ARCHIVO");       //O(1)
        }
-        return null;
+        return null;                                                                                    //O(1)
     }
     
     public String[] splitDatos(String cadena){
-        String [] resultado = cadena.split(",");
-        return resultado;
-    }
-    
+        String [] resultado = cadena.split(",");                                                   //O(1)         
+        return resultado;                                                                              //O(1)     
+    }                                                                                   //--------------------------------------    
+                                                                                            //RESULTADO O(n)
     
 }

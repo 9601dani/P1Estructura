@@ -137,6 +137,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (apuestas == true) {
             IngresoDatos ingreso = new IngresoDatos();
             ingreso.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(null, "Apuestas Cerradas");
         }
@@ -159,8 +160,8 @@ public class MainFrame extends javax.swing.JFrame {
             ControlCaballo cc = new ControlCaballo();
             Main.listaError=lisoE;
             lista = cc.validacionCaballos(cadena, liso);
-            System.out.println("----------->");
-            lista.imprimirInicioFin();
+            int Datos=lista.tamañoArreglo();
+            JOptionPane.showMessageDialog(null,"Se ingresaron "+ Datos+" filas");
         }else{
             JOptionPane.showMessageDialog(null, "ACTUALMENTE ESTAN CERRADAS LAS APUESTAS");
         }
@@ -172,10 +173,11 @@ public class MainFrame extends javax.swing.JFrame {
         apuestas=false;                                                //O(n)     
         JOptionPane.showMessageDialog(null, "Hemos analizado las apuestas, recuerda ingresar los resultado\n"+
                                                          "no olvides ingresar los resultados");          
-        lista=lista.analizarApuestas();                                       //O(n)
-        lista.imprimirInicioFin();                                      //O(n)
-        JOptionPane.showMessageDialog(null, "jeje");
-        Main.listaError.imprimirInicioFin();
+                                               //O(n)
+        JOptionPane.showMessageDialog(null, "\tA Continuacion te enviamos el archivo\n\tde las apuestas que han tenido errores y\n\tno se han tomado en cuenta");
+        lista=lista.analizarApuestas();
+        lista.tamañoArreglo();                                      //O(n)
+        Main.listaError.tamañoArreglo();
                                                                 //----------------
                                                                         //n
     }//GEN-LAST:event_CerrarApuestaActionPerformed

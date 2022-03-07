@@ -5,6 +5,7 @@
 package com.dani96.practica1estructura.frames;
 
 import com.dani96.practica1estructura.control.ListaCircularDoble;
+import com.dani96.practica1estructura.control.Orde;
 import com.dani96.practica1estructura.main.Main;
 import static com.dani96.practica1estructura.main.Main.apuestas;
 import static com.dani96.practica1estructura.main.Main.lista;
@@ -242,8 +243,15 @@ public class IngresoResultado extends javax.swing.JFrame {
                  this.dispose();
                   JOptionPane.showMessageDialog(null, "INGRESO CORRECTO");
                   lista.CalcularPuntos(caballos);
-                  System.out.println("-->");
-                  lista.imprimirPuntos();
+                  JOptionPane.showMessageDialog(null, "\tA Continuacion te enviamos el archivo\n\tde resultados");
+                 // new Orde(lista).insertionSort();
+                 try{
+                     lista.generarArchivo(lista);
+                 }catch(Exception e){
+                     JOptionPane.showMessageDialog(null, "HEMOS TENIDO ERRORES AL PRESENTAR LOS RESULTADOS");
+                 }
+                 
+                 // lista.imprimirPuntos();
             }else{
                 JOptionPane.showMessageDialog(null, "Hemos encontrado\n"
                         +"errores en el ingreso\n"

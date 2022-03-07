@@ -114,8 +114,6 @@ public class IngresoDatos extends javax.swing.JFrame {
 
         jLabel3.setText("Monto");
 
-        montoText.setText("Monto");
-
         jLabel4.setText("1er Lugar");
 
         jLabel5.setText("2do Lugar");
@@ -248,8 +246,6 @@ public class IngresoDatos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("jejeje");
-        System.out.println(nameText.getText());
             int[] caballos = new int[10];
             caballos[0] = combo1.getSelectedIndex() + 1;
             caballos[1] = combo2.getSelectedIndex() + 1;
@@ -262,6 +258,7 @@ public class IngresoDatos extends javax.swing.JFrame {
             caballos[8] = combo9.getSelectedIndex() + 1;
             caballos[9] = combo10.getSelectedIndex() + 1;
             lista.añadir(new Apuesta(new Apostador(nameText.getText()), Double.parseDouble(montoText.getText()), caballos));
+            JOptionPane.showMessageDialog(null, "Hemos Ingresado la apuesta");
             this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed

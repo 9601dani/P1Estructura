@@ -379,9 +379,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="montoText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Monto"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
