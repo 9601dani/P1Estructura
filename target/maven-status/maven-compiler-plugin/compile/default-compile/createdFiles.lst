@@ -12,7 +12,7 @@ com/dani96/practica1estructura/main/Main.class
 com/dani96/practica1estructura/objects/Apuesta.class
 com/dani96/practica1estructura/frames/MainFrame$4.class
 com/dani96/practica1estructura/frames/IngresoResultado$1.class
-.netbeans_automatic_build
+com/dani96/practica1estructura/control/Orde.class
 com/dani96/practica1estructura/frames/IngresoDatos$4.class
 com/dani96/practica1estructura/frames/IngresoResultado$3.class
 com/dani96/practica1estructura/frames/MainFrame$2.class
